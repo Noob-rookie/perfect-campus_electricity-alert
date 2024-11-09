@@ -65,7 +65,7 @@ do
     # echo $(echo "向与学号 ${STUDENT_ID:0:4}****** 绑定的QQ号 ${ALERT_QQ:0:3}******** 发送消息：$msg")
     echo $(echo "电费不足，正在通过 Qmsg 酱推送消息 ... ...")
     
-    res=$(curl -sd "qq=${ALERT_QQ}&msg=$msg" "https://qmsg.zendee.cn:443/send/${QMSG_KEY}")
+    res=$(curl -sd "qq=${ALERT_QQ}&msg=$msg" "https://qmsg.zendee.cn/jsend/${QMSG_KEY}")
     
     QmsgFlag=$(echo $res | jq .success)
     if [ "$QmsgFlag" == "true" ];then   # 输出是否推送成功日志
